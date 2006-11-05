@@ -2,16 +2,17 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
+          'PL_FILES' => {},
+          'INSTALLDIRS' => 'site',
           'NAME' => 'Moose::Policy',
+          'EXE_FILES' => [],
           'VERSION_FROM' => 'lib/Moose/Policy.pm',
           'PREREQ_PM' => {
-                           'Carp' => '0',
-                           'Moose' => '0.11',
+                           'Test::More' => '0.62',
                            'Scalar::Util' => '1.18',
                            'Test::Exception' => '0.21',
-                           'Test::More' => '0.62'
-                         },
-          'INSTALLDIRS' => 'site',
-          'PL_FILES' => {}
+                           'Moose' => '0.11',
+                           'Carp' => '0'
+                         }
         )
 ;

@@ -3,7 +3,7 @@ package Moose::Policy;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Moose        ();
 use Carp         'confess';
@@ -15,8 +15,13 @@ sub import {
     my $policy = shift || return;
 
     unless (Moose::_is_class_already_loaded($policy)) {
-        ($policy->require) or confess "Could not load policy module " .
-            "'$policy' because : $UNIVERSAL::require::ERROR";
+        # otherwise require it ...
+        my $file = $policy . '.pm';
+        $file =~ s{::}{/}g;
+        eval { CORE::require($file) };
+        confess "Could not load policy module " .
+        "'$policy' because : $UNIVERSAL::require::ERROR"
+            if $@;        
     }
 
     my $package = caller();
@@ -79,8 +84,8 @@ metaclasses, however fiddling with the metaclasses can be hairy. Moose::Policy
 removes most of that hairiness and makes it possible to cleanly contain 
 a set of meta-level customizations in one easy to use module.
 
-This is the first release of this module and should be considered to be 
-complete by any means. It is very basic implemenation at this point and 
+This is the first release of this module and it should not be considered to 
+be complete by any means. It is very basic implemenation at this point and 
 will likely get more feature-full over time, as people request features.
 So if you have a suggestion/need/idea, please speak up.
 
@@ -172,7 +177,7 @@ to cpan-RT.
 
 Stevan Little E<lt>stevan@iinteractive.comE<gt>
 
-Eric Wilhelm E<lt>...E<gt>
+Eric Wilhelm
 
 =head1 COPYRIGHT AND LICENSE
 

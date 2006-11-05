@@ -51,13 +51,13 @@ Moose::Policy::FollowPBP - Follow the recomendations in Perl Best Practices
 
 =head1 DESCRIPTION
 
-This meta-policy changes the behavior of Moose's default behavior in 
-regard to  accessors to follow the recomdnations found in Damian 
-Conway's book Perl Best Practices. 
+This meta-policy changes Moose's default accossor-naming behavior to
+follow the recommendations found in Damian Conway's book I<Perl Best
+Practices>.
 
 =head1 BUGS
 
-All complex software has bugs lurking in it, and this module is no 
+All complex software has bugs lurking in it, and this module is no
 exception. If you find a bug please either email me, or add the bug
 to cpan-RT.
 

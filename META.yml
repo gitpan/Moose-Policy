@@ -1,10 +1,12 @@
 ---
 name: Moose-Policy
-version: 0.01
+version: 0.02
 author:
   - 'Stevan Little E<lt>stevan@iinteractive.comE<gt>'
 abstract: moose-mounted police
 license: perl
+resources:
+  license: http://dev.perl.org/licenses/
 requires:
   Carp: 0
   Moose: 0.11
@@ -15,7 +17,7 @@ build_requires:
 provides:
   Moose::Policy:
     file: lib/Moose/Policy.pm
-    version: 0.01
+    version: 0.02
   Moose::Policy::FollowPBP:
     file: lib/Moose/Policy/FollowPBP.pm
   Moose::Policy::FollowPBP::Attribute:
@@ -28,4 +30,7 @@ provides:
     file: lib/Moose/Policy/SingleInheritence.pm
   Moose::Policy::SingleInheritence::MetaClass:
     file: lib/Moose/Policy/SingleInheritence.pm
-generated_by: Module::Build version 0.2611
+generated_by: Module::Build version 0.2805
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

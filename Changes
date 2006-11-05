@@ -1,5 +1,10 @@
 Revision history for Perl extension Moose-Policy
 
+0.02 Sun. Nov. 5, 2006
+    - We removed UNIVERSAL::require in Moose recently, and 
+      this module was breaking beacuse of that. It is now 
+      fixed.
+
 0.01 Wed. Aug. 9, 2006
     - module created by Stevan Little and Eric Willhelm, 
       with input form Matt Trout and the #moose crew.
