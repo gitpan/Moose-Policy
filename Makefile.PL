@@ -9,10 +9,8 @@ WriteMakefile
           'VERSION_FROM' => 'lib/Moose/Policy.pm',
           'PREREQ_PM' => {
                            'Test::More' => '0.62',
-                           'Scalar::Util' => '1.18',
                            'Test::Exception' => '0.21',
-                           'Moose' => '0.11',
-                           'Carp' => '0'
+                           'Moose' => '0.20'
                          }
         )
 ;

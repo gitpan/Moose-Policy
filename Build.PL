@@ -5,10 +5,8 @@ use strict;
 my $build = Module::Build->new(
     module_name => 'Moose::Policy',
     license => 'perl',
-    requires => {
-        'Scalar::Util'  => '1.18',
-        'Carp'          => '0',    
-        'Moose'         => '0.11',
+    requires => { 
+        'Moose' => '0.20',
     },
     optional => {
     },

@@ -1,4 +1,4 @@
-Moose::Policy version 0.02
+Moose::Policy version 0.03
 ===========================
 
 See the individual module documentation for more information
@@ -16,13 +16,11 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-    Carp
-    Scalar::Util
     Moose
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2006 Infinity Interactive, Inc.
+Copyright (C) 2006-2007 Infinity Interactive, Inc.
 
 http://www.iinteractive.com
 

@@ -1,26 +1,18 @@
 package Moose::Policy;
+use Moose 'confess', 'blessed';
 
-use strict;
-use warnings;
-
-our $VERSION = '0.02';
-
-use Moose        ();
-use Carp         'confess';
-use Scalar::Util 'blessed';
+our $VERSION   = '0.03';
+our $AUTHORITY = 'cpan:STEVAN';
 
 sub import {
     shift;
 
     my $policy = shift || return;
 
-    unless (Moose::_is_class_already_loaded($policy)) {
+    unless (Class::MOP::is_class_loaded($policy)) {
         # otherwise require it ...
-        my $file = $policy . '.pm';
-        $file =~ s{::}{/}g;
-        eval { CORE::require($file) };
-        confess "Could not load policy module " .
-        "'$policy' because : $UNIVERSAL::require::ERROR"
+        eval { Class::MOP::load_class($policy) };
+        confess "Could not load policy module '$policy' because : $@"
             if $@;        
     }
 
@@ -35,7 +27,7 @@ sub import {
     my %options;
 
     # build options out of policy's constants
-    $policy->can($_) and $options{":$_"} = $policy->$_($package)
+    $policy->can($_) and $options{"$_"} = $policy->$_($package)
         for (qw(
             attribute_metaclass
             instance_metaclass
@@ -60,7 +52,7 @@ __END__
 
 =head1 NAME
 
-Moose::Policy - moose-mounted police
+Moose::Policy - Moose-mounted police
 
 =head1 SYNOPSIS
 
@@ -84,7 +76,7 @@ metaclasses, however fiddling with the metaclasses can be hairy. Moose::Policy
 removes most of that hairiness and makes it possible to cleanly contain 
 a set of meta-level customizations in one easy to use module.
 
-This is the first release of this module and it should not be considered to 
+This is still an release of this module and it should not be considered to 
 be complete by any means. It is very basic implemenation at this point and 
 will likely get more feature-full over time, as people request features.
 So if you have a suggestion/need/idea, please speak up.
@@ -150,6 +142,14 @@ For examples of what a Policy actually looks like see the examples in
 C<Moose::Policy::> and the test suite. More docs to come on this later (probably 
 a cookbook or something).
 
+=head1 METHODS
+
+=over 4
+
+=item B<meta>
+
+=back
+
 =head1 FUTURE PLANS
 
 As I said above, this is the first release and it is by no means feature complete. 
@@ -181,7 +181,7 @@ Eric Wilhelm
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2006 by Infinity Interactive, Inc.
+Copyright 2006-2007 by Infinity Interactive, Inc.
 
 L<http://www.iinteractive.com>
 
