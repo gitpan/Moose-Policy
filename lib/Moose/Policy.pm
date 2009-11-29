@@ -1,7 +1,7 @@
 package Moose::Policy;
 use Moose 'confess', 'blessed';
 
-our $VERSION   = '0.03';
+our $VERSION   = '0.04';
 our $AUTHORITY = 'cpan:STEVAN';
 
 sub import {
@@ -13,7 +13,7 @@ sub import {
         # otherwise require it ...
         eval { Class::MOP::load_class($policy) };
         confess "Could not load policy module '$policy' because : $@"
-            if $@;        
+            if $@;
     }
 
     my $package = caller();
@@ -88,7 +88,7 @@ implement a number of customizations and restrictions on a particular
 Moose class. 
 
 For instance, L<Moose::Policy::SingleInheritence> enforces that all 
-specified Moose classes can only use single inheritence. It does this 
+specified Moose classes can only use single inheritance. It does this 
 by trapping the call to C<superclasses> on the metaclass and only allowing 
 you to assign a single superclass. 
 
@@ -112,15 +112,15 @@ custom metaclass before Moose has set it's default metaclass. In fact, if
 you try to set a Moose::Policy and there is a C<meta> method available, 
 not only will kittens die, but your program will too.
 
-=head2 Policys are class scoped
+=head2 Policies are class scoped
 
-You must repeat the policy for each class you want to us it. It is B<not> 
+You must repeat the policy for each class you want to use it. It is B<not> 
 inherited. This may change in the future, probably it will be a Moose::Policy 
-itself to allow Moose policys to be inherited.
+itself to allow Moose policies to be inherited.
 
 =head1 THE POLICY
 
-A Policy is set by passing C<Moose::Polocy::import()> a package name.  This 
+A Policy is set by passing C<Moose::Policy::import()> a package name.  This 
 package is then queried for what metaclasses it should use. The possible 
 metaclass values are:
 
@@ -163,7 +163,7 @@ some random thoughts on that, in no particular order.
 Roles are an excellent way to combine sets of behaviors together into one, and 
 custom metaclasses are actually better composed by roles then by inheritence. 
 The ideal situation is that this module will provide a set of roles which can be 
-used to compose you meta-policy with relative ease.
+used to compose your meta-policy with relative ease.
 
 =back
 

@@ -54,7 +54,7 @@ my $oops;
 
     has 'bar' => (default => 'Foo::bar');
     has 'baz' => (default => 'Foo::baz');
-    has 'bop' => (is => 'no', default => 'woot');
+    has 'bop' => (is => 'bare', default => 'woot');
     eval { has 'oops' => (is => 'thbbbt'); };
     $oops = $@;
 }
