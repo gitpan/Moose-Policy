@@ -1,5 +1,10 @@
 Revision history for Perl extension Moose-Policy
 
+0.05 Sun. Nov. 21, 2010
+    - This distribution has been deprecated for a long time. This release
+      makes it official. Note that this module no longer even passes its tests
+      with recent versions of Moose.
+
 0.04 Sun. Nov. 29, 2009
     - Fix a couple of POD typos.
     - Fix test warnings on new Moose versions.

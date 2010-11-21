@@ -49,6 +49,10 @@ Moose::Policy::JavaAccessors - BeCause EveryOne Loves CamelCase
   
   # Foo now has (get, set)Bar methods as well as getBaz
 
+=head1 DEPRECATION NOTICE
+
+B<Moose::Policy is deprecated>.
+
 =head1 DESCRIPTION
 
 This meta-policy changes the behavior of Moose's default behavior in 

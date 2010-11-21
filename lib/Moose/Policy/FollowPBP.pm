@@ -49,6 +49,12 @@ Moose::Policy::FollowPBP - Follow the recomendations in Perl Best Practices
   
   # Foo now has (get, set)_bar methods as well as get_baz
 
+=head1 DEPRECATION NOTICE
+
+B<Moose::Policy is deprecated>.
+
+Use L<MooseX::FollowPBP> instead.
+
 =head1 DESCRIPTION
 
 This meta-policy changes Moose's default accessor-naming behavior to

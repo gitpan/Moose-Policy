@@ -1,7 +1,7 @@
 package Moose::Policy;
 use Moose 'confess', 'blessed';
 
-our $VERSION   = '0.04';
+our $VERSION   = '0.05';
 our $AUTHORITY = 'cpan:STEVAN';
 
 sub import {
@@ -65,6 +65,17 @@ Moose::Policy - Moose-mounted police
   has 'baz' => (is => 'ro', default => 'Foo::baz');
 
   # Foo now has (get, set)_bar methods as well as get_baz
+
+=head1 DEPRECATION NOTICE
+
+B<Moose::Policy is deprecated>.
+
+L<MooseX::FollowPBP> replaces the L<Moose::Policy::FollowPBP> module. The
+other policies included in this distribution do not yet have standalone MooseX
+modules, as of November, 2010.
+
+This module has not passed its tests since Moose 1.05, and will probably not
+be fixed.
 
 =head1 DESCRIPTION
 

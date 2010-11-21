@@ -3,9 +3,16 @@
 use strict;
 use warnings;
 
-use Test::More tests => 22;
+use Test::More;
 
 BEGIN {
+    require Moose;
+
+    plan skip_all => 'Moose::Policy does not work with recent versions of Moose'
+        if Moose->VERSION >= 1.05;
+
+    plan tests => 22;
+
     use_ok('Moose::Policy');
 }
 

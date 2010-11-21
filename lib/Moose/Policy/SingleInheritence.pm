@@ -44,6 +44,10 @@ Moose::Policy::SingleInheritence - Why would you ever need more than one?
   
   extends 'Foo', 'Bar';  # BOOM!!!!
 
+=head1 DEPRECATION NOTICE
+
+B<Moose::Policy is deprecated>.
+
 =head1 DESCRIPTION
 
 This module restricts Moose's C<extends> keyword so that you can only assign 
